@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#152c25"><meta name="description" content="Explore a living coastal sanctuary. Solve puzzles, care for endangered animals, and bring four wildlife rescues safely home.">
+  <title>Wildhaven — Wildlife Rescue</title><link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <canvas id="world" aria-label="3D wildlife sanctuary. Use W A S D to explore and E to interact."></canvas>
+  <div id="loading"><div class="loading-mark">W</div><p>Opening the sanctuary…</p><small>Preparing your field expedition</small></div>
+  <main id="home" hidden>
+    <header class="home-header"><a class="wordmark" href="./">W<span>WILDHAVEN<small>WILDLIFE RESCUE</small></span></a><span class="header-note">A little courage. A second chance.</span><button class="quiet" id="home-settings">Settings</button></header>
+    <div class="home-layout">
+      <section class="hero-copy"><p class="eyebrow">YOUR NEXT ADVENTURE HAS A PURPOSE</p><h1>Into the wild.<br><em>Back to safety.</em></h1><p class="hero-intro">Walk in a ranger’s boots. Follow the trails, outsmart poachers’ traps, and give four endangered animals a new beginning.</p><div class="start-actions"><button id="start" class="primary">Begin expedition <span>↗</span></button><button id="continue" class="secondary" hidden>Continue rescue</button></div><p class="save-note" id="save-note">One island. Four rescues. Explore at your own pace.</p><div class="mission-preview"><span>01 <strong>Explore</strong></span><i></i><span>02 <strong>Understand</strong></span><i></i><span>03 <strong>Rescue</strong></span></div></section>
+      <aside class="field-brief"><div class="brief-top"><span class="eyebrow">BEFORE YOU HEAD OUT</span><span class="book-mark">✦</span></div><h2>Your field briefing</h2><p>Four rescue beacons are active. Approach an animal and press <kbd>E</kbd> to inspect its situation.</p><ol><li><strong>Read the scene.</strong> Field notes contain the clues you need to release a trap or prepare a safe rescue.</li><li><strong>Choose the right care.</strong> Complete each animal’s care steps. Mistakes give you a hint; you can always try again.</li><li><strong>Leave no one behind.</strong> Rescue all four animals to finish your expedition. Follow your map in any order.</li></ol><div class="field-code"><strong>THE RANGER’S CODE</strong><p>Stay on the island. Respect wildlife. No fighting, feeding wild animals, or racing against a clock.</p></div><p class="fiction-note">A fictional sanctuary with simplified rescue activities. In real life, keep your distance and contact trained wildlife rescuers.</p></aside>
+    </div>
+    <footer class="home-footer"><div><kbd>W A S D</kbd><span>Move</span></div><div><kbd>DRAG</kbd><span>Look around</span></div><div><kbd>V</kbd><span>1st / 3rd person</span></div><div><kbd>E</kbd><span>Interact</span></div><div><kbd>M</kbd><span>Map</span></div><div><kbd>ESC</kbd><span>Pause</span></div><small>Headphones welcome · Progress saved locally</small></footer>
+  </main>
+  <section id="hud" hidden aria-label="Game controls">
+    <div class="hud-top"><div class="hud-brand"><b>W</b><div>WILDHAVEN<small id="region">RANGER STATION</small></div></div><div class="hud-actions"><span id="rescue-counter">0 / 4 rescued</span><button id="view-button" title="Switch perspective (V)">Third person <kbd>V</kbd></button><button id="journal-button" title="Field journal (J)">Journal</button><button id="pause-button" title="Pause (Escape)">Ⅱ</button></div></div>
+    <aside id="tracker"><p class="eyebrow">RESCUE LOG</p><div id="mission-list"></div><button class="text-button" id="map-button">Open field map <kbd>M</kbd></button></aside>
+    <div id="crosshair" hidden>+</div><div id="waypoint" aria-live="polite"></div>
+    <div id="interact-prompt" hidden><span id="nearby-name"></span><button id="interact-button"><kbd>E</kbd> Inspect rescue</button></div>
+    <div class="hud-bottom"><span id="movement-hint"><kbd>W A S D</kbd> Move · <kbd>SHIFT</kbd> Run · Drag to look · Click for mouse look</span><button id="sound-button" title="Toggle nature sounds">Sound off</button></div>
+    <div id="mini-map-wrap"><canvas id="mini-map" width="230" height="230" aria-label="Sanctuary mini map"></canvas><span>N</span><small id="map-coordinates">FIELD MAP</small></div>
+    <div id="touch-controls"><div id="dpad"><button data-key="KeyW" aria-label="Move forward">▲</button><button data-key="KeyA" aria-label="Move left">◀</button><button data-key="KeyS" aria-label="Move backward">▼</button><button data-key="KeyD" aria-label="Move right">▶</button></div><div class="touch-actions"><button id="touch-view" aria-label="Change camera">View</button><button id="touch-interact">Inspect</button></div></div>
+  </section>
+  <div id="toast" role="status" hidden></div>
+  <div id="modal-backdrop" hidden><section id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"></section></div>
+  <div id="fatal" hidden><h1>The sanctuary could not open.</h1><p id="fatal-message"></p><button onclick="location.reload()">Try again</button></div>
+  <noscript>This game needs JavaScript enabled in your browser.</noscript>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

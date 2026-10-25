@@ -1,0 +1,7 @@
+{
+  "name": "wildhaven-rescue", "version": "1.0.0", "private": true, "type": "module",
+  "description": "An offline-ready 3D wildlife rescue adventure.",
+  "scripts": {"start": "node server.mjs", "build": "node build.mjs", "test": "node --test tests/*.test.mjs", "test:browser": "node tests/browser.mjs"},
+  "devDependencies": {"esbuild": "0.25.12", "playwright": "1.56.1"},
+  "engines": {"node": ">=18"}
+}
